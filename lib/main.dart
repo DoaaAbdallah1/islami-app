@@ -1,7 +1,11 @@
+
 import 'package:flutter/material.dart';
 import 'package:islami/core/constants/app_routes.dart';
+import 'package:islami/core/constants/app_theme.dart';
 import 'package:islami/features/home/presentation/screens/home_screen.dart';
 import 'package:islami/features/onboarding/presentation/screens/onboarding_screen.dart';
+
+import 'features/quran/presentation/screens/soura_details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,21 +14,22 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Islami',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-      
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
+
+      theme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
+
       initialRoute: AppRoutes.onboarding,
-      routes:{
-      AppRoutes.onboarding:(context)=> OnboardingScreen(),
-      AppRoutes.home:(context) => HomeScreen()
-      } ,
+
+      routes: {
+        AppRoutes.onboarding: (context) => OnboardingScreen(),
+        AppRoutes.home: (context) => HomeScreen(),
+        AppRoutes.souraDetails:(context) => SouraDetailsScreen(),
+      },
     );
   }
 }

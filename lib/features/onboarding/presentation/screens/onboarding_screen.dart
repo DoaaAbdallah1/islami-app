@@ -7,6 +7,8 @@ import 'package:islami/core/constants/app_routes.dart';
 import 'package:islami/core/constants/app_strings.dart';
 import 'package:material_ui/material_ui.dart' as material;
 
+import '../../../../core/constants/app_text_style.dart';
+
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -33,32 +35,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const titleStyle = TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      fontFamily: "Janna",
-      color: AppColors.primaryColor,
-    );
-
-    const bodyStyle = TextStyle(
-      fontSize: 20,
-      fontFamily: "Janna",
-      fontWeight: FontWeight.bold,
-      color: AppColors.primaryColor,
-    );
-
     const pageDecoration = PageDecoration(
-      titleTextStyle: titleStyle,
-      bodyTextStyle: bodyStyle,
+      titleTextStyle: AppTextStyle.bold24Primary,
+      bodyTextStyle: AppTextStyle.bold20Primary,
       bodyPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-      pageColor: AppColors.secondaryColor,
+      pageColor: AppColors.blackColor,
       imagePadding: EdgeInsets.zero,
       imageFlex: 8,
       bodyFlex: 5,
     );
 
     return Scaffold(
-      backgroundColor: AppColors.secondaryColor,
+      backgroundColor: AppColors.blackColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -70,7 +58,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: IntroductionScreen(
                   key: introKey,
 
-                  globalBackgroundColor: AppColors.secondaryColor,
+                  globalBackgroundColor: AppColors.blackColor,
 
                   allowImplicitScrolling: true,
 
@@ -79,7 +67,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     PageViewModel(
                       title: AppStrings.onboardingWelcomeToIslamiApp0,
                       body: '',
-                      image: _buildImage(AppAssets.welcome2),
+                      image: _buildImage(AppAssets.welcomeStart),
                       decoration: pageDecoration,
                     ),
 
@@ -95,7 +83,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     PageViewModel(
                       title: AppStrings.onboardingReadingTheQuran2,
                       body: AppStrings.onboardingReadAndYourLord2,
-                      image: _buildImage(AppAssets.welcome),
+                      image: _buildImage(AppAssets.welcomeReading),
                       decoration: pageDecoration,
                     ),
 
@@ -121,44 +109,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   showBackButton: true,
                   showSkipButton: false,
                   backStyle: material.TextButton.styleFrom(
-                    alignment: .centerStart
+                    alignment: .centerStart,
                   ),
                   nextStyle: material.TextButton.styleFrom(
-                    alignment: .centerEnd
+                    alignment: .centerEnd,
                   ),
                   doneStyle: material.TextButton.styleFrom(
-                    alignment: .centerEnd
+                    alignment: .centerEnd,
                   ),
-                  back: const Text(
+                  back: Text(
                     AppStrings.onboardingBack,
-                    style: TextStyle(
-                      color: AppColors.primaryColor,
-                      fontSize: 16,
-                      fontFamily: "Janna",
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyle.bold16Primary,
                     textAlign: .start,
                   ),
 
-                  next: const Text(
+                  next: Text(
                     AppStrings.onboardingNext,
-                    style: TextStyle(
-                      color: AppColors.primaryColor,
-                      fontSize: 16,
-                      fontFamily: "Janna",
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyle.bold16Primary,
                     textAlign: .end,
                   ),
 
-                  done: const Text(
+                  done: Text(
                     AppStrings.onboardingFinish,
-                    style: TextStyle(
-                      color: AppColors.primaryColor,
-                      fontSize: 16,
-                      fontFamily: "Janna",
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyle.bold16Primary,
                     textAlign: .end,
                   ),
 
@@ -168,9 +141,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                   dotsDecorator: DotsDecorator(
                     size: const Size(7, 7),
-                    color: AppColors.textColor,
+                    color: AppColors.grayColor,
                     activeSize: const Size(18, 7),
-                    activeColor: AppColors.primaryColor,
+                    activeColor: AppColors.goldColor,
                     activeShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(27),
                     ),
